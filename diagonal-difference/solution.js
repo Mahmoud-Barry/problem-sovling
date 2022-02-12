@@ -37,8 +37,7 @@ function diagonalDifference(arr) {
         diag1 += arr[i][i];
         diag2 += arr[arr.length -1 -i][i];
     }
-    
-    return diag2 - diag1;
+    return Math.abs(diag1 - diag2);
 }
 
 function main() {
