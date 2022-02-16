@@ -1,9 +1,24 @@
-#include <bits/stdc++.h>
+'use strict';
 
-using namespace std;
+process.stdin.resume();
+process.stdin.setEncoding('utf-8');
 
-string ltrim(const string &);
-string rtrim(const string &);
+let inputString = '';
+let currentLine = 0;
+
+process.stdin.on('data', function(inputStdin) {
+    inputString += inputStdin;
+});
+
+process.stdin.on('end', function() {
+    inputString = inputString.split('\n');
+
+    main();
+});
+
+function readLine() {
+    return inputString[currentLine++];
+}
 
 /*
  * Complete the 'staircase' function below.
@@ -11,40 +26,24 @@ string rtrim(const string &);
  * The function accepts INTEGER n as parameter.
  */
 
-void staircase(int n) {
-
+function staircase(n) {
+    // Write your code here
+    let output = '';
+    for (let i = 0; i < n; i++) {
+        for (let j = n - 1; j >= i; j--) {
+            output += ' '
+        }
+        for (let k = 0; k < i; k++) {
+            output += '#'
+        }
+        output += "\n"
+    }
+    console.log(output)
+        
 }
 
-int main()
-{
-    string n_temp;
-    getline(cin, n_temp);
-
-    int n = stoi(ltrim(rtrim(n_temp)));
+function main() {
+    const n = parseInt(readLine().trim(), 10);
 
     staircase(n);
-
-    return 0;
-}
-
-string ltrim(const string &str) {
-    string s(str);
-
-    s.erase(
-        s.begin(),
-        find_if(s.begin(), s.end(), not1(ptr_fun<int, int>(isspace)))
-    );
-
-    return s;
-}
-
-string rtrim(const string &str) {
-    string s(str);
-
-    s.erase(
-        find_if(s.rbegin(), s.rend(), not1(ptr_fun<int, int>(isspace))).base(),
-        s.end()
-    );
-
-    return s;
 }
