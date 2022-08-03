@@ -30,18 +30,16 @@ function staircase(n) {
     // Write your code here
     let output = '';
     for (let i = 0; i < n; i++) {
-        for (let j = n - 1; j >= i; j--) {
+        for (let j = n - 1; j > i; j--) {
             output += ' '
         }
-        for (let k = 0; k < i; k++) {
+        for (let k = 0; k <= i; k++) {
             output += '#'
         }
         output += "\n"
     }
     console.log(output)
-        
 }
-
 function main() {
     const n = parseInt(readLine().trim(), 10);
 
